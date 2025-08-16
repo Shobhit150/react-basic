@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 function App() {
 
   return (
@@ -14,7 +14,7 @@ export const App2 = () => {
   return (
     <h1>
       {counter}
-      <button onClick={change}>button</button>
+      <button onClick={change} className=" bg-blue">button</button>
     </h1>
   )
 }
