@@ -7,31 +7,52 @@ export default function Counter() {
 
   useEffect(() => {
     console.log("rendering..");
-  })
-  
-  return (
-    <div>
-      <p>useState count: {count}</p>
-      <p>useRef count: {refCount.current}</p>
-      <p>Normal variable count: {normalCount}</p>
+  });
 
-      <button onClick={() => setCount(count + 1)}>+ State</button>
-      <button
-        onClick={() => {
-          refCount.current += 1;
-          console.log("ref:", refCount.current);
-        }}
-      >
-        + Ref
-      </button>
-      <button
-        onClick={() => {
-          normalCount += 1;
-          console.log("normal:", normalCount);
-        }}
-      >
-        + Normal Variable
-      </button>
+  return (
+    <div className="h-screen flex justify-center items-center bg-gray-100">
+      <div className="bg-white p-6 rounded shadow-md text-center space-y-4 w-72">
+        
+        <div className="space-y-1">
+          <p className="font-semibold">useState</p>
+          <p className="text-lg">{count}</p>
+          <button
+            className="w-full bg-blue-600 text-white py-2 rounded"
+            onClick={() => setCount(count + 1)}
+          >
+            Increment State
+          </button>
+        </div>
+
+        <div className="space-y-1">
+          <p className="font-semibold">useRef</p>
+          <p className="text-lg">{refCount.current}</p>
+          <button
+            className="w-full bg-green-600 text-white py-2 rounded"
+            onClick={() => {
+              refCount.current += 1;
+              console.log("ref:", refCount.current);
+            }}
+          >
+            Increment Ref
+          </button>
+        </div>
+
+        <div className="space-y-1">
+          <p className="font-semibold">Normal Variable</p>
+          <p className="text-lg">{normalCount}</p>
+          <button
+            className="w-full bg-red-600 text-white py-2 rounded"
+            onClick={() => {
+              normalCount += 1;
+              console.log("normal:", normalCount);
+            }}
+          >
+            Increment Variable
+          </button>
+        </div>
+
+      </div>
     </div>
   );
 }
